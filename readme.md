@@ -1,6 +1,6 @@
 # Minimalistic
 
-![](name-of-giphy.gif)
+![](presentation.gif)
 
 
 
