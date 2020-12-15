@@ -1,0 +1,38 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .85);
+    width: 100%;
+    height: 100%;
+    font-size: 90px;
+    color: white;
+    z-index: 2;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+.overlay__image{
+    margin: auto;
+    max-width: 70%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
+.overlay__information__table{
+    display: inline;
+    position: absolute;
+    max-width: calc((30% / 2) - 5px);
+    top: 0;
+    left: 5px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: left;
+}
+.overlay__information__table th {
+    padding-right: 5px;
+}

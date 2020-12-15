@@ -1,0 +1,12 @@
+.upload__content{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center ;
+}
+
+.form__input{
+    background-color: rgba(120, 120, 120, 1);
+    border: none;
+    border-radius: 15px;
+}
