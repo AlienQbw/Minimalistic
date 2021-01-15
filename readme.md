@@ -46,6 +46,6 @@ At first, application was only supposed to read images from the local folder and
 - Displays a placeholder of that image on the page (so that original is not required to unnecessarily load)
 
 If you go to an upload page:
-You have to choice a new file to upload. When you click upload, and the file is valid, then "/scripts/upload.php" uploads that file to the local folder, with a unique key in the name (so that images will not have the same names). Then it heads to main website. Website creates placeholder for new image, and displays it.
+You have to choose a new file to upload. When you click upload, and the file is valid, then "/scripts/upload.php" uploads that file to the local folder, with a unique key in the name (so that images will not have the same names). Then it heads to main website. Website creates placeholder for new image, and displays it. Placeholder is a compressed version of original, so that it minimizes a loading time of the page.
 
 > I know that I could use Database to store details about images but I wanted to achive that using JS.
