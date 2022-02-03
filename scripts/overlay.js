@@ -25,6 +25,7 @@ var UIOverlayController = (function () {
 var overlayController = (function (UICtrl) {
   var DOM = UICtrl.getDOMstrings();
   var currentlyOpenedImageId = '';
+  var isOpened = false;
   var setupEventListeners = function () {
     document.querySelector(DOM.content).addEventListener('click', detectImage); //it listenes to all of the clicks on the content
     document.querySelector(DOM.overlay).addEventListener('click', closeOverlay); //if instead of image, overlay is being clicked, overlay is closed
@@ -97,11 +98,13 @@ var overlayController = (function (UICtrl) {
         imagesData[idImg].tags;
       document.querySelector(DOM.overlayDownload).href = imagesData[idImg].link;
     }
+    isOpened = true;
   };
   var closeOverlayEsc = function (e) {
     if (e.keyCode === 27) {
       //escape keycode 27
       document.querySelector(DOM.overlay).style.display = 'none';
+      isOpened = false;
     }
   };
   var closeOverlay = function (event) {
@@ -109,20 +112,23 @@ var overlayController = (function (UICtrl) {
     if (clickArea === undefined) {
       document.querySelector(DOM.overlay).style.display = 'none';
       document.querySelector(DOM.overlayImage).src = ''; //so when we open it again we don't have old image for a sec
+      isOpened = false;
     }
     /*         console.log('Overlay has been closed..'); */
   };
   var nextImage = function (e) {
-    if (e.keyCode === 39) {
-      let nextId = parseInt(currentlyOpenedImageId) + 1;
-      if (nextId <= imagesData.length - 1) {
-        detectImage(undefined, nextId);
+    if (isOpened) {
+      if (e.keyCode === 39) {
+        let nextId = parseInt(currentlyOpenedImageId) + 1;
+        if (nextId <= imagesData.length - 1) {
+          detectImage(undefined, nextId);
+        }
       }
-    }
-    if (e.keyCode === 37) {
-      let nextId = parseInt(currentlyOpenedImageId) - 1;
-      if (nextId >= 0) {
-        detectImage(undefined, nextId);
+      if (e.keyCode === 37) {
+        let nextId = parseInt(currentlyOpenedImageId) - 1;
+        if (nextId >= 0) {
+          detectImage(undefined, nextId);
+        }
       }
     }
   };
